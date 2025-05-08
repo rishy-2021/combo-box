@@ -20,6 +20,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   return (
     <input
       type="text"
+      placeholder="select month"
       value={value}
       onChange={(e) => onChange(e.target.value)}
       onKeyDown={onKeyDown}
