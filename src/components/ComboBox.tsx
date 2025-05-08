@@ -3,8 +3,18 @@ import InputBox from "./InputBox";
 import DropdownList from "./DropdownList";
 
 const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
 const ComboBox: FC = () => {
@@ -16,7 +26,10 @@ const ComboBox: FC = () => {
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
         setCurrentIndex(-1);
       }
@@ -30,7 +43,9 @@ const ComboBox: FC = () => {
     const search = inputValue.trim().toLowerCase();
 
     if (search) {
-      const matches = MONTHS.filter(month => month.toLowerCase().includes(search));
+      const matches = MONTHS.filter((month) =>
+        month.toLowerCase().includes(search)
+      );
       setFilteredOptions(matches);
       setIsOpen(true);
       setCurrentIndex(-1);
@@ -47,11 +62,13 @@ const ComboBox: FC = () => {
     switch (e.key) {
       case "ArrowDown":
         e.preventDefault();
-        setCurrentIndex(prev => (prev + 1) % filteredOptions.length);
+        setCurrentIndex((prev) => (prev + 1) % filteredOptions.length);
         break;
       case "ArrowUp":
         e.preventDefault();
-        setCurrentIndex(prev => (prev - 1 + filteredOptions.length) % filteredOptions.length);
+        setCurrentIndex(
+          (prev) => (prev - 1 + filteredOptions.length) % filteredOptions.length
+        );
         break;
       case "Enter":
         e.preventDefault();
@@ -74,11 +91,7 @@ const ComboBox: FC = () => {
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="relative w-72"
-      aria-expanded={isOpen}
-    >
+    <div ref={containerRef} className="relative w-72" aria-expanded={isOpen}>
       <InputBox
         value={inputValue}
         onChange={setInputValue}

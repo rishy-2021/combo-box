@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
 
 interface InputBoxProps {
-  value: string
-  onChange: (value: string) => void
-  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
-  onFocus: () => void
-  currentIndex: number
-  hasOptions: boolean
+  value: string;
+  onChange: (value: string) => void;
+  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onFocus: () => void;
+  currentIndex: number;
+  hasOptions: boolean;
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -32,7 +32,7 @@ const InputBox: React.FC<InputBoxProps> = ({
       }
       aria-expanded={hasOptions}
     />
-  )
-}
+  );
+};
 
-export default InputBox
+export default InputBox;
